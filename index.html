@@ -1,17 +1,29 @@
+<!-- برمجة و تطوير أستاذ  أيوب رضي +973 38388911
+مبرمج شامل   -->
+
 <!DOCTYPE html>
 <html>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نظام مدرسة جابر لمتابعة تصحيل الطالب</title>
 <body>
 
-<h2>HTML Forms</h2>
 
 <div class="main-center">
-    <!-- Author: FormBold Team -->
-    <!-- Learn More: https://formbold.com -->
+<div id="tableContainer"></div>
     <div class="form-container">
         <img
-            src="https://ucarecdn.com/412d5bde-bec7-49c8-94c9-f6df6434ed12/address.png"
-            alt="Address Form Image"
+            src="img/logo.png"
+            alt="Logo"
             class="form-img"
+          
+        />
+         <img
+            src="img/log1.png"
+            alt="Logo"
+            class="form-img"
+            style="width: 25%;"
         />
         <form
             action="https://formbold.com/s/FORM_ID"
@@ -19,160 +31,52 @@
             enctype="multipart/form-data"
         >
             <div style="margin-bottom: 2rem">
-                <h2 class="form-title">Address Form</h2>
+                <h2 class="form-title">نظام جابر للدرجات</h2>
                 <p class="form-desc">
-                    Please provide your address details below. Fields marked
-                    with * are required.
+                    نظام مدرسة جابر بن حيان لمتابعة تصحيل الطالب الدراسي
                 </p>
             </div>
 
-            <label for="fullname" class="form-label">Full Name*</label>
+            <label for="stuCPR" class="form-label">رقم الطالب*</label>
             <input
-                type="text"
-                name="fullname"
-                id="fullname"
+                type="number"
+                max="8"
+                min="8"
+                name="stuCPR"
+                id="stuCPR"
                 class="form-input"
-                placeholder="Enter your full name"
+                placeholder="أدخل رقم الطالب الشخصي"
                 required
             />
 
-            <label for="email" class="form-label">Email Address*</label>
-            <input
-                type="email"
-                name="email"
-                id="email"
-                class="form-input"
-                placeholder="Enter your email"
-                required
-            />
+           
+                    <button class="form-btn">متابعة</button>
 
-            <label for="phone" class="form-label"
-                >Phone Number (Optional)</label
-            >
-            <input
-                type="tel"
-                name="phone"
-                id="phone"
-                class="form-input"
-                placeholder="Enter your phone number"
-            />
 
-            <label for="address-line-1" class="form-label"
-                >Street Address (Line 1)*</label
-            >
-            <input
-                type="text"
-                name="address-line-1"
-                id="address-line-1"
-                class="form-input"
-                placeholder="House No., Road Name, etc."
-                required
-            />
-
-            <label for="address-line-2" class="form-label"
-                >Street Address (Line 2) (Optional)</label
-            >
-            <input
-                type="text"
-                name="address-line-2"
-                id="address-line-2"
-                class="form-input"
-                placeholder="Apartment, Suite, Floor, etc."
-            />
-
-            <label for="city" class="form-label">City / Town*</label>
-            <input
-                type="text"
-                name="city"
-                id="city"
-                class="form-input"
-                placeholder="City or Town"
-                required
-            />
-
-            <label for="state" class="form-label"
-                >State / Province / Region*</label
-            >
-            <input
-                type="text"
-                name="state"
-                id="state"
-                class="form-input"
-                placeholder="State, Province, or Region"
-                required
-            />
-
-            <label for="postal-code" class="form-label"
-                >Postal / ZIP Code*</label
-            >
-            <input
-                type="text"
-                name="postal-code"
-                id="postal-code"
-                class="form-input"
-                placeholder="Postal or ZIP Code"
-                required
-            />
-
-            <label for="country" class="form-label">Country*</label>
-            <select name="country" id="country" class="form-select" required>
-                <option value="India">India</option>
-                <option value="USA">United States</option>
-                <option value="UK">United Kingdom</option>
-                <option value="Canada">Canada</option>
-                <option value="Australia">Australia</option>
-            </select>
-
-            <label for="purpose" class="form-label"
-                >Purpose of Form (Optional)</label
-            >
-            <select name="purpose" id="purpose" class="form-select">
-                <option value="new-address">New Address</option>
-                <option value="address-update">Address Update</option>
-                <option value="delivery-address">Delivery Address</option>
-                <option value="billing-address">Billing Address</option>
-                <option value="permanent-address">Permanent Address</option>
-            </select>
-
-            <label for="proof-of-address" class="form-label"
-                >Proof of Address (Optional)</label
-            >
-            <input
-                type="file"
-                name="proof-of-address"
-                id="proof-of-address"
-                accept=".pdf,.jpg,.jpeg,.png"
-                class="form-file"
-            />
-
-            <div class="form-checkbox-row">
-                <input
-                    type="checkbox"
-                    id="declaration"
-                    class="form-checkbox"
-                    required
-                />
-                <label
-                    for="declaration"
-                    style="margin: 0; font-weight: 500"
-                    class="form-label"
-                >
-                    I confirm this address is accurate and updated to the best
-                    of my knowledge.
-                </label>
-            </div>
-
-            <button class="form-btn">Submit Address</button>
         </form>
+
+        <footer>
+   <p style="font-size:10px; font-weight: bold; color:#4273a1">v2.0</p>
+  <p style="font-size:10px; font-weight: bold; color:#4273a1">برمجة و تطوير : أ.أيوب رضي أيوب</p>
+</footer>
     </div>
 </div>
 <style>
+
+
+footer {
+  text-align: center;
+  padding: 20px;
+}
+
+
     /* General Body Styles */
     body {
         font-family: "Inter", sans-serif;
         background-color: #f3f4f6; /* A light gray background */
         margin: 0;
         padding: 0;
+        text-align: right;
     }
 
     /* Main container to center the form */
@@ -180,7 +84,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        min-height: 100vh;
+      min-height: vh;
         padding: 2rem;
         box-sizing: border-box;
     }
@@ -309,8 +213,8 @@
     }
 
     .form-checkbox:checked {
-        background-color: #6a64f1;
-        border-color: #6a64f1;
+        background-color: #64adf1;
+        border-color: #64adf1;
     }
 
     /* Submit button styling */
@@ -322,7 +226,7 @@
         padding: 0.875rem 1.5rem; /* 14px 24px */
         border: none;
         font-weight: 600;
-        background-color: #6a64f1; /* Purple accent color */
+        background-color: #64adf1; /* Purple accent color */
         color: white;
         cursor: pointer;
         margin-top: 1.5rem; /* 24px */
@@ -330,7 +234,7 @@
     }
 
     .form-btn:hover {
-        background-color: #5a54d1; /* Darker purple on hover */
+        background-color: #4273a1; /* Darker purple on hover */
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
     /* --- Mobile Responsive Styles --- */
@@ -349,6 +253,35 @@
     }
 </style>
 
+<script>
+
+
+    async function loadCSV() {
+    const response = await fetch('data/students.csv'); // URL of your CSV file
+    const data = await response.text();
+    const rows = data.split('\n'); // Split by line break
+    
+    let table = '<table>';
+    rows.forEach(row => {
+        table += '<tr>';
+        const columns = row.split(','); // Split by comma
+        columns.forEach(column => {
+            table += `<td>${column}</td>`;
+        });
+        table += '</tr>';
+    });
+    table += '</table>';
+    
+    document.getElementById('tableContainer').innerHTML = table;
+}
+
+ loadCSV();
+</script>
+    
 </body>
+
 </html>
+
+
+      
 

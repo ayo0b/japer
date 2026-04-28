@@ -1,5 +1,5 @@
 <!-- برمجة و تطوير أستاذ  أيوب رضي +973 38388911
-مبرمج شامل   -->
+مبرمج و محلل أنظمة  -->
 
 <!DOCTYPE html>
 <html>
@@ -7,12 +7,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>نظام مدرسة جابر لمتابعة تصحيل الطالب</title>
+    <link rel="stylesheet" href="style.css">
+    
 <body>
 
 
 <div class="main-center">
 <div id="tableContainer"></div>
     <div class="form-container">
+
+
+     <div id="enter">
+         <img
+            src="img/logo.png"
+            alt="Logo"
+            class="form-img"
+          
+        />
+        <button class="form-btn" onclick="exit()">خروج </button>
+
+     </div>
+        <div id="whenScss">
         <img
             src="img/logo.png"
             alt="Logo"
@@ -25,11 +40,7 @@
             class="form-img"
             style="width: 25%;"
         />
-        <form
-            action="https://formbold.com/s/FORM_ID"
-            method="POST"
-            enctype="multipart/form-data"
-        >
+    
             <div style="margin-bottom: 2rem">
                 <h2 class="form-title">نظام جابر للدرجات</h2>
                 <p class="form-desc">
@@ -38,10 +49,12 @@
             </div>
 
             <label for="stuCPR" class="form-label">رقم الطالب*</label>
+
+
+
             <input
                 type="number"
-                max="8"
-                min="8"
+              
                 name="stuCPR"
                 id="stuCPR"
                 class="form-input"
@@ -50,10 +63,233 @@
             />
 
            
-                    <button class="form-btn">متابعة</button>
+<button class="form-btn" onclick="loadCSV()">متابعة </button>
 
 
-        </form>
+
+        </div> 
+
+    <br> 
+<div id="result">
+
+<table class="styled-table">
+   <thead class="table-header bg-light">
+        <tr style="  text-align: center;">
+            <th colspan="2">
+معلومات الطالب الشخصية
+</th>
+        
+        </tr>
+    </thead>
+      <tbody>
+
+        <tr style="  text-align: right;">
+            <td  class="td-Name">الرقم الشخصي</td>
+            <td>   
+         <span id="CPR"> </span> 
+            </td>
+        </tr>
+        <tr  style="  text-align: right;">
+            <td class="td-grade" >إسم الطالب</td>
+            <td>  <span id="Name"></span>
+                        </td>
+        </tr>
+        <tr  style="text-align: right;">
+            <td class="td-grade">الصف</td>
+            <td><span id="Class"></span>  </td>
+        </tr>
+        <tr  style="text-align: right;">
+            <td class="td-grade">الفرقة</td>
+            <td>  <span id="Section"> </span>     </td>
+        </tr>
+        
+         
+</tbody>
+<tbody >
+
+</tbody>
+                                                               
+</table>
+
+
+<br>
+
+    <table  class="styled-table">
+                                        <thead class="table-header bg-light">
+                                            <tr>
+                                                <th  style="  text-align: right;" class="td-CPR"> المادة</th>
+                                                <th  style="  text-align: right;">الدرجة الكلية</th>
+                                                <th   style="  text-align: right;"class="td-Name">
+                                                    
+                                              الدرجة المستحقة (حدد الوقفة التقويمية) 
+                                              
+                                              <select onchange="this.form.submit();" required=""  id="ctrl-exam_id" name="exam_id"   placeholder="تحديد ..."   >
+                                          
+                                                    <option >
+                                                     وقفة 1
+                                                    </option>
+                                                   
+                                                </select>
+                                            
+                                            </th>
+                                              
+                                            </tr>
+                                        </thead>
+                                    
+                                        <tbody>
+                                      
+                                          
+                                            <tr>
+                                                <td  style="  text-align: right;" class="td-Name">
+                                                    <span>
+                                               اللغة العربية                                                   
+                                                   </span>
+                                                </td>
+                                                <td  style="  text-align: right;" class="td-grade">
+                                                <span id="allAR" STYLE="font-weight:bold">
+                                                     
+                                                    </span>
+
+                                                </td>
+
+                                                <td  style="  text-align: right;" class="td-grade">
+                                                <span id="arab">
+                                                    
+                                                </span>
+                                                </td>
+                                            </tr>
+
+                                             <tr>
+                                                <td  style="  text-align: right;" class="td-Name">
+                                                    <span>
+                                                      التربية الإسلامية 
+                                                    </span>
+                                                </td>
+                                                <td  style="  text-align: right;" class="td-grade">
+                                                <span id="allislm" STYLE="font-weight:bold">
+                                                     
+                                                    </span>
+
+                                                </td>
+
+                                                <td  style="  text-align: right;" class="td-grade">
+                                                <span id="islamic">
+                                                    
+                                                </span>
+                                                </td>
+                                            </tr>
+
+
+                                             <tr>
+                                                <td  style="  text-align: right;" class="td-Name">
+                                                    <span>
+                                                       الرياضيات 
+                                                    </span>
+                                                </td>
+                                                <td  style="  text-align: right;" class="td-grade">
+                                                <span id="allMath" STYLE="font-weight:bold">
+                                                     
+                                                    </span>
+
+                                                </td>
+
+                                                <td  style="  text-align: right;" class="td-grade">
+                                                <span id="math">
+                                                    
+                                                </span>
+                                                </td>
+                                            </tr>
+
+
+                                             <tr>
+                                                <td  style="  text-align: right;" class="td-Name">
+                                                    <span >
+                                                        التربية للمواطنة 
+                                                    </span>
+                                                </td>
+                                                <td  style="  text-align: right;" class="td-grade">
+                                                <span id="allcitzn" STYLE="font-weight:bold">
+                                                     
+                                                    </span>
+
+                                                </td>
+
+                                                <td  style="  text-align: right;" class="td-grade">
+                                                <span id="citizen">
+                                                    
+                                                </span>
+                                                </td>
+                                            </tr>
+
+
+                                             <tr>
+                                                <td  style="  text-align: right;" class="td-Name">
+                                                    <span>
+                                                       العلوم
+                                                    </span>
+                                                </td>
+                                                <td  style="  text-align: right;" class="td-grade">
+                                                <span  id="allscince" STYLE="font-weight:bold">
+                                                     
+                                                    </span>
+
+                                                </td>
+
+                                                <td  style="  text-align: right;" class="td-grade">
+                                                <span id="sceince">
+                                                    
+                                                </span>
+                                                </td>
+                                            </tr>
+
+                                             <tr>
+                                                <td  style="  text-align: right;" class="td-Name">
+                                                    <span>
+                                                       المواد الاجتماعية 
+                                                    </span>
+                                                </td>
+                                                <td  style="  text-align: right;" class="td-grade">
+                                                <span  id="allhistory" STYLE="font-weight:bold">
+                                                     
+                                                    </span>
+
+                                                </td>
+
+                                                <td  style="  text-align: right;" class="td-grade">
+                                                <span  id="history">
+                                                    
+                                                </span>
+                                                </td>
+                                            </tr>
+
+                                             <tr>
+                                                <td  style="  text-align: right;" class="td-Name">
+                                                    <span >
+                                                        اللغة الإنجليزية 
+                                                    </span>
+                                                </td>
+                                                <td  style="  text-align: right;" class="td-grade">
+                                                <span id="allEn"  STYLE="font-weight:bold">
+                                                     
+                                                    </span>
+
+                                                </td>
+
+                                                <td  style="  text-align: right;" class="td-grade">
+                                                <span id="en">
+                                                    
+                                                </span>
+                                                </td>
+                                            </tr>
+
+                                            
+
+                                           </tbody>
+                                        <tbody ></tbody>
+                                    </table>
+                                    
+</div>
+
 
         <footer>
    <p style="font-size:10px; font-weight: bold; color:#4273a1">v2.0</p>
@@ -61,224 +297,118 @@
 </footer>
     </div>
 </div>
-<style>
-
-
-footer {
-  text-align: center;
-  padding: 20px;
-}
-
-
-    /* General Body Styles */
-    body {
-        font-family: "Inter", sans-serif;
-        background-color: #f3f4f6; /* A light gray background */
-        margin: 0;
-        padding: 0;
-        text-align: right;
-    }
-
-    /* Main container to center the form */
-    .main-center {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      min-height: vh;
-        padding: 2rem;
-        box-sizing: border-box;
-    }
-
-    /* The form card itself */
-    .form-container {
-        margin: 0 auto;
-        max-width: 570px;
-        width: 100%;
-        background: white;
-        padding: 2.5rem; /* 40px */
-        border-radius: 0.75rem; /* 12px */
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-            0 4px 6px -4px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Form image styling */
-    .form-img {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: 2rem; /* 32px */
-        width: 100%;
-        max-width: 200px;
-        height: auto; /* Maintain aspect ratio */
-    }
-
-    /* Form title and description */
-    .form-title {
-        font-size: 1.875rem; /* 30px */
-        font-weight: 700;
-        color: #111827; /* Dark gray */
-        margin-bottom: 0.5rem; /* 8px */
-        text-align: center;
-    }
-
-    .form-desc {
-        color: #6b7280; /* Medium gray */
-        margin-bottom: 2rem; /* 32px */
-        font-size: 0.875rem; /* 14px */
-        text-align: center;
-        line-height: 1.5;
-    }
-
-    /* Styling for form labels */
-    .form-label {
-        display: block;
-        margin-bottom: 0.5rem; /* 8px */
-        font-size: 0.875rem; /* 14px */
-        font-weight: 600;
-        color: #374151; /* Slightly lighter dark gray */
-    }
-
-    /* Unified styling for text inputs and select dropdowns */
-    .form-input,
-    .form-select {
-        width: 100%;
-        padding: 0.875rem 1.25rem; /* 14px 20px */
-        border: 1px solid #d1d5db; /* Light gray border */
-        border-radius: 0.5rem; /* 8px */
-        background: #ffffff;
-        font-weight: 500;
-        font-size: 1rem; /* 16px */
-        color: #111827;
-        outline: none;
-        box-sizing: border-box;
-        transition: border-color 0.2s, box-shadow 0.2s;
-        margin-bottom: 1.25rem; /* 20px */
-    }
-
-    .form-input::placeholder {
-        color: #9ca3af; /* Lighter gray for placeholder */
-    }
-
-    /* Focus state for inputs and selects */
-    .form-input:focus,
-    .form-select:focus {
-        border-color: #6a64f1; /* Purple accent color */
-        box-shadow: 0 0 0 3px rgba(106, 100, 241, 0.2);
-    }
-
-    /* Styling for the file input */
-    .form-file {
-        display: block;
-        width: 100%;
-        margin-bottom: 1.25rem; /* 20px */
-        font-size: 0.875rem; /* 14px */
-        color: #374151;
-    }
-
-    /* Custom styling for file input button */
-    .form-file::file-selector-button {
-        margin-right: 1rem;
-        padding: 0.5rem 1rem;
-        border: 1px solid #d1d5db;
-        border-radius: 0.375rem;
-        background-color: #f9fafb;
-        color: #374151;
-        font-weight: 500;
-        cursor: pointer;
-        transition: background-color 0.2s;
-    }
-
-    .form-file::file-selector-button:hover {
-        background-color: #f3f4f6;
-    }
-
-    /* Container for the checkbox and its label */
-    .form-checkbox-row {
-        display: flex;
-        align-items: flex-start;
-        gap: 0.75rem; /* 12px */
-        margin-top: 1.5rem; /* 24px */
-        margin-bottom: 1.5rem; /* 24px */
-    }
-
-    /* Styling for the checkbox */
-    .form-checkbox {
-        margin-top: 0.125rem; /* 2px */
-        height: 1.25rem; /* 20px */
-        width: 1.25rem; /* 20px */
-        border-radius: 0.25rem; /* 4px */
-        border: 1px solid #d1d5db;
-        cursor: pointer;
-        flex-shrink: 0;
-    }
-
-    .form-checkbox:checked {
-        background-color: #64adf1;
-        border-color: #64adf1;
-    }
-
-    /* Submit button styling */
-    .form-btn {
-        text-align: center;
-        width: 100%;
-        font-size: 1rem; /* 16px */
-        border-radius: 0.5rem; /* 8px */
-        padding: 0.875rem 1.5rem; /* 14px 24px */
-        border: none;
-        font-weight: 600;
-        background-color: #64adf1; /* Purple accent color */
-        color: white;
-        cursor: pointer;
-        margin-top: 1.5rem; /* 24px */
-        transition: background-color 0.2s, box-shadow 0.2s;
-    }
-
-    .form-btn:hover {
-        background-color: #4273a1; /* Darker purple on hover */
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-    /* --- Mobile Responsive Styles --- */
-    @media (max-width: 600px) {
-        .main-center {
-            padding: 1rem;
-        }
-
-        .form-container {
-            padding: 1.5rem;
-        }
-
-        .form-title {
-            font-size: 1.5rem; /* 24px */
-        }
-    }
-</style>
 
 <script>
+    document.getElementById("enter").style.display = "none";
+    document.getElementById("whenScss").style.display = "block";
+    document.getElementById("result").style.display = "none";
+function exit(){
+   var x = document.getElementById("whenScss");
+    x.style.display = "block";
+    document.getElementById("enter").style.display = "none";
+  //document.getElementById('result').innerHTML=null;
+       document.getElementById("result").style.display = "none";
 
+}
 
     async function loadCSV() {
+   var x = document.getElementById("whenScss");
+   const searchId = document.getElementById('stuCPR').value;
     const response = await fetch('data/students.csv'); // URL of your CSV file
     const data = await response.text();
     const rows = data.split('\n'); // Split by line break
     
-    let table = '<table>';
-    rows.forEach(row => {
-        table += '<tr>';
-        const columns = row.split(','); // Split by comma
-        columns.forEach(column => {
-            table += `<td>${column}</td>`;
+        // Find row where the first column matches the ID
+        const match = rows.find(row => {
+            const columns = row.split(',');
+   return columns[0].trim() === searchId.trim();
         });
-        table += '</tr>';
-    });
-    table += '</table>';
+
+
+           if (match) {
+            //if works/then>>
+
+               const columns = match.split(',');
+                    // Display specific columns (e.g., Name=col1, Age=col2)
+
+            document.getElementById("result").style.display = "block";
+            //cument.getElementById('result').innerText =columns;
+               document.getElementById("CPR").innerText=columns[0];
+               document.getElementById("Name").innerText=columns[1];
+               document.getElementById("Class").innerText=columns[2];
+               document.getElementById("Section").innerText=columns[3];
+
+
+
+
+            // `الرقم الشخصي: ${columns[0]}
+            //  الأسم: ${columns[1]}
+            //   الصف: ${columns[2]}
+            //    الشعبة: ${columns[3]}
+            //  `
+            //  ;
+             x.style.display = "none";
+            document.getElementById("enter").style.display = "block";
+
+
+
+    const res = await fetch('data/ENgrade.csv'); // URL of your CSV file
+    const EnGrade = await res.text();
+    const ENrows = EnGrade.split('\n'); // Split by line break
     
-    document.getElementById('tableContainer').innerHTML = table;
+        // Find row where the first column matches the ID
+        const match1 = ENrows.find(row => {
+            const columns1 = row.split(',');
+   return columns1[0].trim() === searchId.trim();
+        });
+    const columns1 = match1.split(',');
+    document.getElementById("allEn").innerText=columns1[4];
+    document.getElementById("en").innerText=columns1[5];
+
+
+
+        } else {
+             document.getElementById("result").style.display = "none";
+             x.style.display = "block";
+            alert("لم يتم العثور على بيانات الطالب");
+        }
+
+
+    // let table = '<table>';
+    // rows.forEach(row => {
+    //     table += '<tr>';
+    //     const columns = row.split(','); // Split by comma
+    //     columns.forEach(column => {
+    //         table += `<td>${column}</td>`;
+    //     });
+    //     table += '</tr>';
+    // });
+    // table += '</table>';
+    
+    // document.getElementById('tableContainer').innerHTML = table;
 }
 
- loadCSV();
+
 </script>
     
 </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </html>
 

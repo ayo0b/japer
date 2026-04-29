@@ -36,7 +36,8 @@ footer {
 
     /* General Body Styles */
     body {
-        font-family: 'Almarai', sans-serif;
+         font-family: 'Almarai', sans-serif;
+        src: url('/fonts/Almarai-Light.ttf') format('woff2');
         background-color: #f3f4f6; /* A light gray background */
         margin: 0;
         padding: 0;

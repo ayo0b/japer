@@ -2,13 +2,19 @@
 مبرمج و محلل أنظمة  -->
 
 <!DOCTYPE html>
-<html>
-    
-    <meta charset="UTF-8">
+    <head>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+  <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>نظام مدرسة جابر لمتابعة تصحيل الطالب</title>
     <link rel="stylesheet" href="style.css">
     
+
+    </head>
+  
 <body>
 
 
@@ -298,98 +304,8 @@
     </div>
 </div>
 
-<script>
-    document.getElementById("enter").style.display = "none";
-    document.getElementById("whenScss").style.display = "block";
-    document.getElementById("result").style.display = "none";
-function exit(){
-   var x = document.getElementById("whenScss");
-    x.style.display = "block";
-    document.getElementById("enter").style.display = "none";
-  //document.getElementById('result').innerHTML=null;
-       document.getElementById("result").style.display = "none";
 
-}
-
-    async function loadCSV() {
-   var x = document.getElementById("whenScss");
-   const searchId = document.getElementById('stuCPR').value;
-    const response = await fetch('data/students.csv'); // URL of your CSV file
-    const data = await response.text();
-    const rows = data.split('\n'); // Split by line break
-    
-        // Find row where the first column matches the ID
-        const match = rows.find(row => {
-            const columns = row.split(',');
-   return columns[0].trim() === searchId.trim();
-        });
-
-
-           if (match) {
-            //if works/then>>
-
-               const columns = match.split(',');
-                    // Display specific columns (e.g., Name=col1, Age=col2)
-
-            document.getElementById("result").style.display = "block";
-            //cument.getElementById('result').innerText =columns;
-               document.getElementById("CPR").innerText=columns[0];
-               document.getElementById("Name").innerText=columns[1];
-               document.getElementById("Class").innerText=columns[2];
-               document.getElementById("Section").innerText=columns[3];
-
-
-
-
-            // `الرقم الشخصي: ${columns[0]}
-            //  الأسم: ${columns[1]}
-            //   الصف: ${columns[2]}
-            //    الشعبة: ${columns[3]}
-            //  `
-            //  ;
-             x.style.display = "none";
-            document.getElementById("enter").style.display = "block";
-
-
-
-    const res = await fetch('data/ENgrade.csv'); // URL of your CSV file
-    const EnGrade = await res.text();
-    const ENrows = EnGrade.split('\n'); // Split by line break
-    
-        // Find row where the first column matches the ID
-        const match1 = ENrows.find(row => {
-            const columns1 = row.split(',');
-   return columns1[0].trim() === searchId.trim();
-        });
-    const columns1 = match1.split(',');
-    document.getElementById("allEn").innerText=columns1[4];
-    document.getElementById("en").innerText=columns1[5];
-
-
-
-        } else {
-             document.getElementById("result").style.display = "none";
-             x.style.display = "block";
-            alert("لم يتم العثور على بيانات الطالب");
-        }
-
-
-    // let table = '<table>';
-    // rows.forEach(row => {
-    //     table += '<tr>';
-    //     const columns = row.split(','); // Split by comma
-    //     columns.forEach(column => {
-    //         table += `<td>${column}</td>`;
-    //     });
-    //     table += '</tr>';
-    // });
-    // table += '</table>';
-    
-    // document.getElementById('tableContainer').innerHTML = table;
-}
-
-
-</script>
+<script src="fetchAPi.js"></script>
     
 </body>
 

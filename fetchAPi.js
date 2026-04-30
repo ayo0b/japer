@@ -1,3 +1,5 @@
+// يمنع نسخ او استخدام اي كود برمجي دون اخذ الاذن من المبرمج / برمجةة تطوير أ.أيوب رضي
+
 document.getElementById("enter").style.display = "none";
     document.getElementById("whenScss").style.display = "block";
     document.getElementById("result").style.display = "none";

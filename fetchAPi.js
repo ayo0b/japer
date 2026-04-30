@@ -59,6 +59,7 @@ console.log("CPR"+searchId);
                      sceince();
                      citizen();
                      Maths();
+                    Osaria();
             // `الرقم الشخصي: ${columns[0]}
             //  الأسم: ${columns[1]}
             //   الصف: ${columns[2]}
@@ -212,3 +213,23 @@ console.log("CPR"+searchId);
     document.getElementById("allcitzn").innerText=columns1[4];
     document.getElementById("citizen").innerText=columns1[5];
  }
+   async function Osaria() {
+            const searchId = document.getElementById('stuCPR').value;
+
+     //load en result
+    const res = await fetch('data/OSARIAgrade.csv'); // URL of your CSV file
+    const Osariarowsgrade = await res.text();
+    const Osariarows = Osariarowsgrade.split('\n'); // Split by line break
+    
+        // Find row where the first column matches the ID
+        const match1 = Osariarows.find(row => {
+            const columns1 = row.split(',');
+   return columns1[0].trim() === searchId.trim();
+        });
+    const columns1 = match1.split(',');
+    document.getElementById("allOsaria").innerText=columns1[4];
+    document.getElementById("Osaria").innerText=columns1[5];
+ }
+
+
+
